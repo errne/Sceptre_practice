@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: 'Creating S3 bucket'
+
+Parameters:
+  S3BucketName:
+    Type: String
+    Description: The name of the bucket
+
+Resources:
+  S3EncryptedBucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      VersioningConfiguration:
+        Status: Enabled
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: aws:kms
+
+
+      BucketName: !Ref S3BucketName

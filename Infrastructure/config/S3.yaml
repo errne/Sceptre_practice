@@ -1,0 +1,5 @@
+template_path: s3-temp.yaml
+
+parameters:
+  S3BucketName: sceptre-testing-buck
+  
